@@ -1,0 +1,13 @@
+{
+  "name": "react-workshop",
+  "author": "Erik Wendel <erik.wendel@bekk.no>",
+  "license": "MIT",
+  "version": "0.1.1",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
