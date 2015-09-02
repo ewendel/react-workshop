@@ -10,6 +10,7 @@ Clone this repo:
 
 ```
 git clone https://github.com/ewendel/react-workshop.git
+cd react-workshop
 ```
 
 Install the project's dependencies:
@@ -27,29 +28,28 @@ node app.js
 ## Tasks
 
 Below you'll find all the tasks we will be working with in this workshop. For
-the first parts of this workshop we have already created all the files you'll
-need to solve these, so you don't have to create any new files yourself.
+the first part of this workshop we have already created all the files you'll
+need to solve these tasks, so you don't have to create any new files yourself.
 You can find all the files needed in the the `tasks` folder, where you should
 also solve the tasks.
 
 In these files, the source code for React.js and a JSX-transpiler are already
 included so that we do not need to continously build our frontend code while
 developing. Some of the exercises include pre-written CSS, so you shouldn't
-have to write any CSS (unless you want to spice things up)
+have to write any CSS (unless you want to spice things up, of course)
 
-These files can be reached using the links at the following URL:
+To get started, go to: [`http://localhost:3000`](http://localhost:3000)
 
-[`http://localhost:3000`](http://localhost:3000)
-
-**Remember to peek at [React's
-documentation](http://facebook.github.io/react/docs/) while doing the
-exercises.**
+**Remember to peek at
+[React's documentation](http://facebook.github.io/react/docs/)
+while working on the tasks.**
 
 # Part I: Becoming aquainted with React
 
 ## Task 1: Creating your first component
 
-(for this task, edit the files in directory `/tasks/1/`. these changes should be visible in  [http://localhost:3000/1](http://localhost:3000/1)) 
+(For this task, edit the files in directory `/tasks/1/`.
+The changes should be visible in  [http://localhost:3000/1](http://localhost:3000/1)) 
 
 Create a simple React component that prints "Hello World".
 
