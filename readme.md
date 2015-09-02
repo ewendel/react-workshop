@@ -264,23 +264,23 @@ last three received tweets.
 Note: you should still use the `Tweet` component created
 earlier to render each individual tweet.
 
-### Task 4: TweetMap
+### Task 4: Tweets on a map
 
 Time to plot where on earth all these tweets are coming from!
 
-You can find plenty of components made by other people at
+You can find plenty of React components made by other people at
 http://react-components.com. We will use the component called
 `react-googlemaps` (ensure that you choose the right package, as there are
 others with similar names).
 
-Now run `npm install` to install this package.
+Now run `npm install <package name>` to install this package.
 
 Create a `TweetMap` component that you use from the `Dashboard`
 component. This new component should `render` a top-level div with the
 CSS class `tweet-map`. With the help of the `react-googlemaps`
 documentation, render a simple map into this div.
 
-These map settings are a good starting point:
+These settings are a good starting point for the map:
 
 - `height`: 100%
 - `width`: 100%
@@ -292,24 +292,25 @@ These map settings are a good starting point:
 - `mapTypeControl`: `false`
 - `initialCenter`: 30.675226, -35.051272
 
-Each tweet has a geolocation. Use this to the place markers on the map.
+Each tweet has a geolocation. Use this to the place a marker on the map for
+each tweet.
 
-(If you've set up the Twitter API access yourself, you can control the
-rate at which you receive tweets on the frontend.  In `twitter-ws.js`,
+(If you have set up the Twitter API access yourself, you can control the
+rate at which you receive tweets on the frontend.  In `task/twitter-ws.js`,
 change the value of the `currentSpeed` variable to some other value, then
-restart the backend, i.e.  re-run `npm start`.)
+restart the backend, i.e. re-run `npm start`.)
 
 It can be wise to only use, let's say, the last hundred received tweets
 in order to avoid your computer from crashing due to the vast amounts
 of tweets.
 
-### Task 5: InfluentialTweets
+### Task 5: Influential tweets
 
-Now that we are receiving way more tweets, it is becoming harder to read the
+Now that we are receiving more tweets, it is becoming harder to read the
 tweets in our `TweetList`. Change this component to show the three tweets that
-have the most followers amongst tweets that are shown on the map.
+have the most followers amongst the tweets that are shown on the map.
 
-### Task 6: CurrentTweet
+### Task 6: Current tweet
 
 We want to to be able to click on one of our map markers in order to
 highlight and show that tweet. Make a new component `CurrentTweet` to
@@ -366,7 +367,7 @@ The HTML could look something like this:
 </div>
 ```
 
-(Remember to reuse the `Timer` component you created earlier!)
+(Remember to reuse the `Timer` component you created in part 1!)
 
 ### Task 9: Country statistics
 
@@ -388,7 +389,7 @@ The HTML could look like this:
 Hint: You don't need to keep a record of all the tweets, only the
 number of tweets per country.
 
-### Task 10: Refactoring
+### Task 10: Creating a "shared" component
 
 We are now displaying small flag icons in two different places in our
 app. It is not beneficial to have this code duplication, so refactor
@@ -399,9 +400,9 @@ this into a `Flag` component.
 ## Finished!
 
 Now you should have quite a good grasp of how React works. If you want to
-learn more about patterns for using React, you can take a look at
-[this workshop on Flux](https://github.com/kjbekkelund/flux-workshop), in which
-you'll create a simple chat application.
+learn more about using React in large apps, you can take a look at
+[our workshop on Flux](https://github.com/kjbekkelund/flux-workshop), where
+you will create a simple chat application.
 
 ### Articles
 
