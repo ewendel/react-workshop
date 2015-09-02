@@ -1,6 +1,6 @@
 # React workshop
 
-Slides from the presentation are available [here](https://github.com/ewendel/react-workshop/blob/master/slides/slides.pdf?raw=true)
+Slides from the presentation are available [here](https://raw.githubusercontent.com/ewendel/slidesets/master/React%20Workshop%20FutureJS.pdf)
 
 ## Instructions
 
