@@ -17,3 +17,6 @@ keys and tokens. The file should be on the following format:
 }
 ```
 
+**NB!** There exists a `task/example-twitter.json` that you can copy to
+`task/twitter.json` as a starting point!
+

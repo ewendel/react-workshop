@@ -181,7 +181,7 @@ tweet object and renders this. For now, use this component from the
 Dashboard component.
 
 As we still haven't fetched tweets from Twitter, you can use
-the example tweet object found in `case/task/example_tweet.json`.
+the example tweet object found in `case/task/example-tweet.json`.
 As a hint, in Node you can actually require a json file directly:
 
 ```javascript
