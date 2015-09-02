@@ -160,17 +160,20 @@ npm install -g gulp
 npm run watch
 ```
 
-Gulp is a build tool used to transpile our JSX code, minify and concatenate our
-JavaScript and CSS, amongst other things. When we're running `watch` your code
-will be built every time a file changes.
+Here we rely on Gulp, a JavaScript build tool, to transpile our JSX code,
+minify and concatenate our JavaScript and CSS, amongst other things. When you
+run `watch` your code will be built every time a JavaScript or CSS file changes.
 
-Then, in another terminal window (remember to go the the `case/task` folder first):
+Then start the server in another terminal window (remember to go the the
+`case/task` folder first):
 
 ```
 npm start
 ```
 
 Finally open the following URL in your web browser: [http://localhost:9999](http://localhost:9999)
+
+You should see the text "Dashboard".
 
 ## Step-by-step guide
 
