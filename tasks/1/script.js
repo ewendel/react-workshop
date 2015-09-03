@@ -7,7 +7,7 @@
 	#### Tips
 
 	Interessante metoder: 
-	React.createClass, React.renderComponent
+	React.createClass, React.render
 
 	Husk JSX-headsup i første linje:<br>
 	/** @jsx React.DOM */
