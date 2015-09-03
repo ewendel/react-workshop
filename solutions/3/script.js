@@ -1,5 +1,3 @@
-/** @jsx React.DOM */
-
 var Timer = React.createClass({
 
     getInitialState: function(){
