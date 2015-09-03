@@ -22,4 +22,4 @@ var Helloes = React.createClass({
     }
 })
 
-React.renderComponent(<Helloes names={['Kyle', 'Stan', 'Kenny', 'Cartman']} />, document.body);
+React.render(<Helloes names={['Kyle', 'Stan', 'Kenny', 'Cartman']} />, document.body);

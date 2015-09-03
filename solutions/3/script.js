@@ -26,7 +26,7 @@ var Timer = React.createClass({
 });
 
 
-React.renderComponent(
+React.render(
     <Timer start={Date.now()} />,
     document.body
 );

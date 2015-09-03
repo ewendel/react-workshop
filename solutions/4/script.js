@@ -52,7 +52,7 @@ var libraries = [
 
 ];
 
-React.renderComponent(
+React.render(
     <Search items={libraries} />,
     document.body
 );
