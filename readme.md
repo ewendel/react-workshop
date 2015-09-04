@@ -49,7 +49,7 @@ while working on the tasks.**
 ## Task 1: Creating your first component
 
 (For this task, edit the files in directory `/tasks/1/`.
-The changes should be visible in  [http://localhost:3000/1](http://localhost:3000/1)) 
+The changes should be visible in  [http://localhost:3000/1](http://localhost:3000/1))
 
 Create a simple React component that prints "Hello World".
 
@@ -149,23 +149,19 @@ set up Twitter API access!
 ### Local setup
 
 Go to the `case/task` folder, then start by installing dependencies and starting
+
 the development tool:
 
 ```
 cd case/task
 
 npm install
-npm install -g gulp
 
-npm run watch
 ```
 
-Here we rely on Gulp, a JavaScript build tool, to transpile our JSX code,
-minify and concatenate our JavaScript and CSS, amongst other things. When you
-run `watch` your code will be built every time a JavaScript or CSS file changes.
 
-Then start the server in another terminal window (remember to go the the
-`case/task` folder first):
+We will use Gulp, a JavaScript build tool, to transpile our JSX code,
+minify and concatenate our JavaScript and CSS, amongst other things. Your code will be built every time a JavaScript or CSS file changes, and it will start the node server by running:
 
 ```
 npm start
@@ -418,4 +414,3 @@ you will create a simple chat application.
 * [How Instagram.com Works](https://www.youtube.com/watch?v=VkTCL6Nqm6Y)
 * [Hot Reloading with Time Travel](https://www.youtube.com/watch?v=xsSnOQynTHs)
 * [High performance functional programming with React and Meteor](https://www.youtube.com/watch?v=qqVbr_LaCIo)
-

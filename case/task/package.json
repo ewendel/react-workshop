@@ -1,8 +1,8 @@
 {
   "name": "Twitterized",
   "scripts": {
-      "start": "node app.js",
-      "watch": "gulp watch"
+      "start": "node app.js & npm run watch",
+      "watch": "./node_modules/.bin/gulp watch"
   },
   "private": true,
   "dependencies": {
