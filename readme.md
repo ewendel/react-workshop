@@ -148,9 +148,7 @@ set up Twitter API access!
 
 ### Local setup
 
-Go to the `case/task` folder, then start by installing dependencies and starting
-
-the development tool:
+Go to the `case/task` folder, then start by installing dependencies and starting the development tool:
 
 ```
 cd case/task
