@@ -2,7 +2,7 @@
   "name": "Twitterized",
   "scripts": {
       "start": "node app.js & npm run watch",
-      "watch": "./node_modules/.bin/gulp watch"
+      "watch": "gulp watch"
   },
   "private": true,
   "dependencies": {
