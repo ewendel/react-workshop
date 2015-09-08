@@ -165,7 +165,6 @@ the development tool:
 cd case/task
 
 npm install
-npm install -g gulp
 
 npm run watch
 ```
