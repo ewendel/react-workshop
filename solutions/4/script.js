@@ -1,4 +1,3 @@
-/** @jsx React.DOM */
 var Search = React.createClass({
 
     getInitialState: function(){
