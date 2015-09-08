@@ -104,6 +104,10 @@ Helpful methods: `setInterval, clearInterval`
 
 Lifecycle hooks: `componentDidMount, componentWillUnmount`
 
+To unmount the component, use the
+[`React.unmountComponentAtNode`](https://facebook.github.io/react/docs/top-level-api.html#react.unmountcomponentatnode)
+helper.
+
 ## Task 4: More state: Real-time search
 
 Create a component `Search`that is passed an array called `items` (a prop). The
