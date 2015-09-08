@@ -106,7 +106,13 @@ Lifecycle hooks: `componentDidMount, componentWillUnmount`
 
 To unmount the component, use the
 [`React.unmountComponentAtNode`](https://facebook.github.io/react/docs/top-level-api.html#react.unmountcomponentatnode)
-helper.
+helper, e.g.
+
+```javascript
+setTimeout(function() {
+    React.unmountComponentAtNode(...);
+}, 3000);
+```
 
 ## Task 4: More state: Real-time search
 
