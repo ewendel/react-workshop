@@ -1,7 +1,7 @@
 {
   "name": "Twitterized",
   "scripts": {
-      "start": "node app.js",
+      "start": "node app.js & npm run watch",
       "watch": "gulp watch"
   },
   "private": true,
