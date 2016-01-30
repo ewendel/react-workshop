@@ -2,10 +2,7 @@ var React = require('react');
 
 var Timer = require('./Timer');
 
-var AppHeader = React.createClass({
-    displayName: 'AppHeader',
-
-    render: function () {
+function AppHeader({ tweetCount }) {
         return <div className="app-header">
             <h1>Twitterizer</h1>
             <div>
@@ -14,10 +11,9 @@ var AppHeader = React.createClass({
             </div>
             <div>
                 <span className="tweet-stats-desc">tweets captured</span>
-                <strong>{this.props.tweetCount}</strong>
+                <strong>{ tweetCount }</strong>
             </div>
         </div>;
-    }
-});
+};
 
 module.exports = AppHeader;

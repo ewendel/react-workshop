@@ -6,30 +6,26 @@ var Flag = require('./Flag');
 
 var NO_OF_COUNTRIES = 25;
 
-var CountryList = React.createClass({
+function CountryList({ countries }) {
+    var items = _.chain(countries)
+        .map(function(count, country) {
+            return { countryCode: country, tweetCount: count };
+        })
+        .sortBy(function(item) {
+            return -item.tweetCount;
+        })
+        .slice(0, NO_OF_COUNTRIES)
+        .map(function(item, index) {
+            return <li key={item.countryCode}>
+                       <Flag countryCode={item.countryCode} />
+                       <span className="country-tweet-count">{ item.tweetCount }</span>
+                   </li>
+        })
+        .value();
 
-    render: function() {
-        var items = _.chain(this.props.countries)
-            .map(function(count, country) {
-                return { countryCode: country, tweetCount: count };
-            })
-            .sortBy(function(item) {
-                return -item.tweetCount;
-            })
-            .slice(0, NO_OF_COUNTRIES)
-            .map(function(item, index) {
-                return <li key={item.countryCode}>
-                           <Flag countryCode={item.countryCode} />
-                           <span className="country-tweet-count">{ item.tweetCount }</span>
-                       </li>
-            })
-            .value();
-
-        return <ul className="countrylist">
-            { items }
-        </ul>;
-    }
-
-});
+    return <ul className="countrylist">
+        { items }
+    </ul>;
+};
 
 module.exports = CountryList;

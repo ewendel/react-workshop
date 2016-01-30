@@ -3,18 +3,12 @@ var _ = require('lodash');
 
 import { GoogleMapLoader, GoogleMap, Marker } from "react-google-maps";
 
-var TweetMap = React.createClass({
-    displayName: 'TweetMap',
-
-    render: function() {
-
-        var props = this.props;
-
-        var markers = this.props.tweets.map(function(t) {
+function TweetMap({ tweets, showTweet, currentTweet }) {
+        var markers = tweets.map(function(t) {
             var callback = function() {
-                props.showTweet(t.id);
+                showTweet(t.id);
             }
-            var icon = t === props.currentTweet ?
+            var icon = t === currentTweet ?
               'http://maps.google.com/mapfiles/ms/icons/green-dot.png' :
               'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
 
@@ -36,7 +30,6 @@ var TweetMap = React.createClass({
                     }
                   />
                 </div>
-    }
-});
+};
 
 module.exports = TweetMap;
