@@ -29,7 +29,7 @@ body {
 }
 
 
-.tweet-map {
+.tweet-map > div {
     height: 100vh;
 }
 
