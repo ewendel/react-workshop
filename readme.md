@@ -279,39 +279,43 @@ Time to plot where on earth all these tweets are coming from!
 
 You can find plenty of React components made by other people at
 http://react-components.com. We will use the component called
-`react-googlemaps` (ensure that you choose the right package, as there are
+`react-google-maps` (ensure that you choose the right package, as there are
 others with similar names).
 
 Now run `npm install <package name>` to install this package.
 
 Create a `TweetMap` component that you use from the `Dashboard`
 component. This new component should `render` a top-level div with the
-CSS class `tweet-map`. With the help of the `react-googlemaps`
+CSS class `tweet-map`. With the help of the `react-google-maps`
 documentation, render a simple map into this div.
 
 These settings are a good starting point for the map:
 
-- `height`: 100%
-- `width`: 100%
-- `initialZoom`: 3
-- `scaleControl`: `false`
-- `streetViewControl`: `false`
-- `panControl`: `false`
-- `zoomControl`: `false`
-- `mapTypeControl`: `false`
-- `initialCenter`: 30.675226, -35.051272
+- `defaultZoom`: `3`
+- `defaultCenter`: `{ lat: 30.675226, lng: -35.051272 }`
+
+
+Below is a demonstration of the minimal bootstrap needed for `react-google-maps`, if you happen to find the official docs a bit too messy. Remember that `GoogleMap` requires some settings to work.
+
+```
+<GoogleMapLoader
+    googleMapElement={
+      <GoogleMap>
+        <Marker position={{ lat: ..., lng: ... }} />
+      </GoogleMap> } />
+```
 
 Each tweet has a geolocation. Use this to the place a marker on the map for
 each tweet.
 
-(If you have set up the Twitter API access yourself, you can control the
+_(If you have set up the Twitter API access yourself, you can control the
 rate at which you receive tweets on the frontend.  In `task/twitter-ws.js`,
 change the value of the `currentSpeed` variable to some other value, then
-restart the backend, i.e. re-run `npm start`.)
+restart the backend, i.e. re-run `npm start`.)_
 
 It can be wise to only use, let's say, the last hundred received tweets
 in order to avoid your computer from crashing due to the vast amounts
-of tweets.
+of data.
 
 ### Task 5: Influential tweets
 
@@ -404,14 +408,24 @@ We are now displaying small flag icons in two different places in our
 app. It is not beneficial to have this code duplication, so refactor
 this into a `Flag` component.
 
+### Task 11: Refactor: using functional stateless components
+
+Release 0.14 of React introduced what is known as functional stateless components. These allow you to create valid React components that are just pure functions - data in taken as an argument, and elements are returned. These are much simpler than a traditional component and does not allow use of lifecycle hooks or internal state. The upside is that they are much more *pure* in functional manner, truly allowing you to express your view as a function of state. 
+
+Read more on functional components here:
+* [https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components)
+* [https://medium.com/@joshblack/stateless-components-in-react-0-14-f9798f8b992d](https://medium.com/@joshblack/stateless-components-in-react-0-14-f9798f8b992d)
+
+Try to refactor your app, using functional stateless components (SFC) wherever possible, minimizing the use of traditional components.
+
 --
 
 ## Finished!
 
 Now you should have quite a good grasp of how React works. If you want to
-learn more about using React in large apps, you can take a look at
-[our workshop on Flux](https://github.com/kjbekkelund/flux-workshop), where
-you will create a simple chat application.
+learn more about using React in large apps, you should take a look at Redux, the most recognized implementation fo the Flux pattern.
+
+The author, Dan Abramov, has created a brilliant online course on Redux [available on egghead.io](https://egghead.io/series/getting-started-with-redux).
 
 ### Articles
 
