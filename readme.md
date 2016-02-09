@@ -1,6 +1,6 @@
 # React workshop
 
-Slides from the presentation are available [here](https://raw.githubusercontent.com/ewendel/slidesets/master/React%20Workshop%20JavaZone.pdf)
+Slides from the presentation are available [here](https://github.com/ewendel/slidesets/raw/master/react-workshop-forwardjs.pdf)
 
 ## Instructions
 
