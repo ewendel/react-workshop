@@ -1,7 +1,9 @@
 var React = require('react');
 var _ = require('lodash');
 
-import { GoogleMapLoader, GoogleMap, Marker } from "react-google-maps";
+var GoogleMapLoader = require('react-google-maps').GoogleMapLoader;
+var GoogleMap = require('react-google-maps').GoogleMap;
+var Marker = require('react-google-maps').Marker;
 
 function TweetMap({ tweets, showTweet, currentTweet }) {
         var markers = tweets.map(function(t) {
