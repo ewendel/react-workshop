@@ -60,9 +60,9 @@ method in the component, and then render the React component into the DOM.
 
 Helpful links:
 
-- [`Getting started`](https://facebook.github.io/react/docs/getting-started.html)
-- [`React.createClass`](https://facebook.github.io/react/docs/top-level-api.html#react.createclass)
-- [`React.render`](https://facebook.github.io/react/docs/top-level-api.html#react.render)
+- [`Getting started`](https://reactjs.org/docs/hello-world.html)
+- [`Components`](https://reactjs.org/docs/components-and-props.html)
+- [`ReactDOM.render`](https://reactjs.org/docs/react-dom.html#render)
 
 ## Task 2: Passing data & using JSX
 
@@ -77,13 +77,15 @@ the names in the `names`-array.
 #### Tips
 
 `props` are used to pass data from parent to child components - reached via
-`this.props` and are immutable
+`this.props` and are immutable.
 
-`render()` has to return only one node
+`render()` should only return a single node
 
-Remember that you can use ordinary JavaScript in JSX by using `{ }`
+Remember that you can use ordinary JavaScript in JSX by using `{ }` to escape.
 
 Helpful methods: `Array.prototype.map`
+
+Helpful reading: [Lists and keys in React](https://reactjs.org/docs/lists-and-keys.html)
 
 ## Task 3: Stateful components: Timer
 
@@ -92,7 +94,7 @@ since the component was initially rendered. Example:
 
 `I was started 7.8 seconds ago`
 
-The component should update itself ten times per second, and the component
+The component should update itself 10 times per second, and the component
 should perform any necessary cleanup when unmounted, e.g timer methods.
 
 #### Tips
@@ -103,22 +105,23 @@ component. It can be accessed through `this.state`
 Helpful methods: `setInterval, clearInterval`
 
 Lifecycle hooks: `componentDidMount, componentWillUnmount`
+[Read about state and lifecycle hooks in the docs](https://reactjs.org/docs/state-and-lifecycle.html)
 
 To unmount the component, use the
-[`React.unmountComponentAtNode`](https://facebook.github.io/react/docs/top-level-api.html#react.unmountcomponentatnode)
+[`ReactDOM.unmountComponentAtNode`](https://reactjs.org/docs/react-dom.html#unmountcomponentatnode)
 helper, e.g.
 
-```javascript
+```js
 setTimeout(function() {
-    React.unmountComponentAtNode(...);
+    ReactDOM.unmountComponentAtNode(...);
 }, 3000);
 ```
 
 ## Task 4: More state: Real-time search
 
-Create a component `Search`that is passed an array called `items` (a prop). The
-elements contained in the array will have the following format: `{ name: "Some
-string", url: "www.somesite.com" }`
+Create a component `Search` that is passed an array called `items` (a prop). The
+elements contained in the array will have the following format: `{ name: 'Some
+string', url: 'www.somesite.com' }`
 
 The component should include a text field, and the elements in the array should
 be filtered by which ones contain the current string in the input field. The
@@ -126,12 +129,15 @@ HTML-structure should look like this:
 
 ```html
 <div>
-    <input type="text" />
+    <input />
     <ul>
-        return <li><a ...></a></li>
+        <li><a ...></a></li>
+        <li><a ...></a></li>
+        <li><a ...></a></li>
     </ul>
 </div>
 ```
+
 Also - ensure the input field has focus after the component has been rendered.
 
 #### Tips
@@ -166,21 +172,18 @@ cd case/task
 
 npm install
 
-npm run watch
-```
-
-Here we rely on Gulp, a JavaScript build tool, to transpile our JSX code,
-minify and concatenate our JavaScript and CSS, amongst other things. When you
-run `watch` your code will be built every time a JavaScript or CSS file changes.
-
-Then start the server in another terminal window (remember to go the the
-`case/task` folder first):
-
-```
 npm start
 ```
 
-Finally open the following URL in your web browser: [http://localhost:9999](http://localhost:9999)
+Here we've run the bootstrapping tool [create-react-app](https://github.com/facebook/create-react-app), which sets up all the build
+tools we'll need to create even advanced production apps. 
+
+`npm start` starts a development server, which automatically recompiles your 
+code on every change. Pretty neat, huh? It'll even open your browser window to 
+the correct address!
+
+Then, start the server in another terminal window (remember to go the the
+`case/task` folder first) with `npm run server`.
 
 You should see the text "Dashboard".
 
@@ -188,7 +191,7 @@ You should see the text "Dashboard".
 
 ### Task 1: Rendering a single tweet
 
-Create a component, `Tweet`, in `js/components` that accepts a
+Create a component, `Tweet`, in `src/components` that accepts a
 tweet object and renders this. For now, use this component from the
 Dashboard component.
 
@@ -197,7 +200,7 @@ the example tweet object found in `case/task/example-tweet.json`.
 As a hint, in Node you can actually require a json file directly:
 
 ```javascript
-var jsObject = require('some-file.json');
+var jsObject = require('./some-file.json');
 ```
 
 The `Tweet` component should have the following HTML structure
@@ -240,25 +243,20 @@ tweets yet, so it might take a few seconds between each new tweet.)
 
 Here's a list of lifecycle methods available in React:
 
-- http://facebook.github.io/react/docs/component-specs.html#lifecycle-methods
+- https://reactjs.org/docs/state-and-lifecycle.html
 
 This is the code needed to set up a WebSocket connection and receive tweets:
 
-**NB!** If you haven't been through the Twitter API setup, remember to ask us
+**NOTE!** If you haven't been through the Twitter API setup, remember to ask us
 for the correct IP address to use instead of `localhost`!
 
 ```javascript
-var ws = new WebSocket('ws://localhost:9999');
-ws.onmessage = function(ms) {
+const ws = new WebSocket('ws://localhost:9999');
+ws.onmessage = (ms) => {
     var newTweet = JSON.parse(ms.data);
-}.bind(this);
+    // TODO: Do something with this tweet data!
+};
 ```
-
-(If you don't understand the use of `.bind(this)`, we recommend checking out
-[Understanding JavaScript’s Function.prototype.bind](http://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/)
-after the workshop. For now you only need to know that it helps you use
-`this` correctly when you want to set the newly arrived tweet on your
-component's `state`.)
 
 ### Task 3: A list of tweets
 
@@ -277,10 +275,9 @@ earlier to render each individual tweet.
 
 Time to plot where on earth all these tweets are coming from!
 
-You can find plenty of React components made by other people at
-http://react-components.com. We will use the component called
-`react-google-maps` (ensure that you choose the right package, as there are
-others with similar names).
+We will use the component called [`react-google-maps`](https://www.npmjs.com/package/react-google-maps) 
+(ensure that you choose the right package, as there are others with similar 
+names).
 
 Now run `npm install <package name>` to install this package.
 
@@ -294,24 +291,15 @@ These settings are a good starting point for the map:
 - `defaultZoom`: `3`
 - `defaultCenter`: `{ lat: 30.675226, lng: -35.051272 }`
 
-
-Below is a demonstration of the minimal bootstrap needed for `react-google-maps`, if you happen to find the official docs a bit too messy. Remember that `GoogleMap` requires some settings to work.
-
-```
-<GoogleMapLoader
-    googleMapElement={
-      <GoogleMap>
-        <Marker position={{ lat: ..., lng: ... }} />
-      </GoogleMap> } />
-```
+Here's a working example you can play with: https://codesandbox.io/s/2xyw6n4o9y
 
 Each tweet has a geolocation. Use this to the place a marker on the map for
 each tweet.
 
-_(If you have set up the Twitter API access yourself, you can control the
-rate at which you receive tweets on the frontend.  In `task/twitter-ws.js`,
-change the value of the `currentSpeed` variable to some other value, then
-restart the backend, i.e. re-run `npm start`.)_
+>(If you have set up the Twitter API access yourself, you can control the
+>rate at which you receive tweets on the frontend.  In `task/twitter-ws.js`,
+>change the value of the `currentSpeed` variable to some other value, then
+>restart the backend, i.e. re-run `npm start`.)
 
 It can be wise to only use, let's say, the last hundred received tweets
 in order to avoid your computer from crashing due to the vast amounts
@@ -343,10 +331,10 @@ http://maps.google.com/mapfiles/ms/icons/green-dot.png
 ```
 
 Hint: Remember that you can pass functions into a component as a prop,
-e.g. as with `onChange` in [forms](https://facebook.github.io/react/docs/forms.html).
+e.g. as with `onChange` in [forms](https://reactjs.org/docs/forms.html).
 
 Hint 2: It's possible to pass along all props to child components:
-[docs](http://facebook.github.io/react/docs/transferring-props.html).
+[docs](https://reactjs.org/docs/components-and-props.html).
 
 ### Task 7: shouldComponentUpdate
 
@@ -408,22 +396,12 @@ We are now displaying small flag icons in two different places in our
 app. It is not beneficial to have this code duplication, so refactor
 this into a `Flag` component.
 
-### Task 11: Refactor: using functional stateless components
-
-Release 0.14 of React introduced what is known as functional stateless components. These allow you to create valid React components that are just pure functions - data in taken as an argument, and elements are returned. These are much simpler than a traditional component and does not allow use of lifecycle hooks or internal state. The upside is that they are much more *pure* in functional manner, truly allowing you to express your view as a function of state. 
-
-Read more on functional components here:
-* [https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components)
-* [https://medium.com/@joshblack/stateless-components-in-react-0-14-f9798f8b992d](https://medium.com/@joshblack/stateless-components-in-react-0-14-f9798f8b992d)
-
-Try to refactor your app, using functional stateless components (SFC) wherever possible, minimizing the use of traditional components.
-
 --
 
 ## Finished!
 
 Now you should have quite a good grasp of how React works. If you want to
-learn more about using React in large apps, you should take a look at Redux, the most recognized implementation fo the Flux pattern.
+learn more about using React in large apps, you should take a look at Redux, the most recognized implementation of the Flux pattern.
 
 The author, Dan Abramov, has created a brilliant online course on Redux [available on egghead.io](https://egghead.io/series/getting-started-with-redux).
 
@@ -431,7 +409,7 @@ The author, Dan Abramov, has created a brilliant online course on Redux [availab
 
 * [Removing User Interface Complexity, or Why React is Awesome] (http://jlongster.com/Removing-User-Interface-Complexity,-or-Why-React-is-Awesome)
 * [Reacts diff algorithm](http://calendar.perfplanet.com/2013/diff/)
-* [About ClojureScript and functional programming i React] (http://blog.getprismatic.com/om-sweet-om-high-functional-frontend-engineering-with-clojurescript-and-react/)
+* [About ClojureScript and functional programming in React] (http://blog.getprismatic.com/om-sweet-om-high-functional-frontend-engineering-with-clojurescript-and-react/)
 
 ### Videos
 
