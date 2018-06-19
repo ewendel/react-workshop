@@ -8,15 +8,15 @@ var LOCATIONS = {
 };
 
 var SPEED = {
-    VERY_SLOW: 0.01,
-    SLOW: 0.1,
-    MEDIUM: 0.2,
-    FAST: 0.4,
-    FASTER: 0.6,
-    FASTEST: 1.0
+    SLOW: 0.01,
+    MEDIUM: 0.1,
+    FAST: 0.2,
+    INSANE: 0.4,
+    RUDUNCULOUS: 0.6,
+    MY_BROWSER_HATES_ME: 1.0
 };
 
-var currentSpeed = SPEED.FAST;
+var currentSpeed = SPEED.MEDIUM;
 
 module.exports = function(server, twitterConfig) {
     var T = new Twit(twitterConfig);
