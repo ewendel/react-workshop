@@ -60,9 +60,9 @@ method in the component, and then render the React component into the DOM.
 
 Helpful links:
 
-- [`Getting started`](https://facebook.github.io/react/docs/getting-started.html)
-- [`React.createClass`](https://facebook.github.io/react/docs/top-level-api.html#react.createclass)
-- [`React.render`](https://facebook.github.io/react/docs/top-level-api.html#react.render)
+- [`Getting started`](https://reactjs.org/docs/hello-world.html)
+- [`Components`](https://reactjs.org/docs/components-and-props.html)
+- [`ReactDOM.render`](https://reactjs.org/docs/react-dom.html#render)
 
 ## Task 2: Passing data & using JSX
 
@@ -77,13 +77,15 @@ the names in the `names`-array.
 #### Tips
 
 `props` are used to pass data from parent to child components - reached via
-`this.props` and are immutable
+`this.props` and are immutable.
 
-`render()` has to return only one node
+`render()` should only return a single node
 
-Remember that you can use ordinary JavaScript in JSX by using `{ }`
+Remember that you can use ordinary JavaScript in JSX by using `{ }` to escape.
 
 Helpful methods: `Array.prototype.map`
+
+Helpful reading: [Lists and keys in React](https://reactjs.org/docs/lists-and-keys.html)
 
 ## Task 3: Stateful components: Timer
 
@@ -92,7 +94,7 @@ since the component was initially rendered. Example:
 
 `I was started 7.8 seconds ago`
 
-The component should update itself ten times per second, and the component
+The component should update itself 10 times per second, and the component
 should perform any necessary cleanup when unmounted, e.g timer methods.
 
 #### Tips
@@ -103,22 +105,23 @@ component. It can be accessed through `this.state`
 Helpful methods: `setInterval, clearInterval`
 
 Lifecycle hooks: `componentDidMount, componentWillUnmount`
+[Read about state and lifecycle hooks in the docs](https://reactjs.org/docs/state-and-lifecycle.html)
 
 To unmount the component, use the
-[`React.unmountComponentAtNode`](https://facebook.github.io/react/docs/top-level-api.html#react.unmountcomponentatnode)
+[`ReactDOM.unmountComponentAtNode`](https://reactjs.org/docs/react-dom.html#unmountcomponentatnode)
 helper, e.g.
 
-```javascript
+```js
 setTimeout(function() {
-    React.unmountComponentAtNode(...);
+    ReactDOM.unmountComponentAtNode(...);
 }, 3000);
 ```
 
 ## Task 4: More state: Real-time search
 
-Create a component `Search`that is passed an array called `items` (a prop). The
-elements contained in the array will have the following format: `{ name: "Some
-string", url: "www.somesite.com" }`
+Create a component `Search` that is passed an array called `items` (a prop). The
+elements contained in the array will have the following format: `{ name: 'Some
+string', url: 'www.somesite.com' }`
 
 The component should include a text field, and the elements in the array should
 be filtered by which ones contain the current string in the input field. The
@@ -126,12 +129,15 @@ HTML-structure should look like this:
 
 ```html
 <div>
-    <input type="text" />
+    <input />
     <ul>
-        return <li><a ...></a></li>
+        <li><a ...></a></li>
+        <li><a ...></a></li>
+        <li><a ...></a></li>
     </ul>
 </div>
 ```
+
 Also - ensure the input field has focus after the component has been rendered.
 
 #### Tips
