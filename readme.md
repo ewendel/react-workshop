@@ -144,7 +144,7 @@ Also - ensure the input field has focus after the component has been rendered.
 
 Helpful methods: `String.prototype.match, Array.prototype.filter`
 
-Useful attributes i JSX: `onChange`, `refs`, `className` (because `class` is a reserved keyword in JavaScript)
+Useful attributes in JSX: `onChange`, `refs`, `className` (because `class` is a reserved keyword in JavaScript)
 
 --
 
